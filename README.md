@@ -69,3 +69,24 @@ Documents
 
 Nitin Mahesh
 
+## Progress
+
+### Day 1
+
+Implemented:
+
+- Document Loader
+- Banking Knowledge Dataset
+- Text Chunking Pipeline
+- Chunk Persistence (JSON)
+
+Output:
+
+```bash
+python -m ingestion.ingest_pipeline
+```
+
+Result:
+
+- Documents Loaded: 3
+- Chunks Generated: 3
