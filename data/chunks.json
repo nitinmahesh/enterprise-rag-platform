@@ -1,4 +1,17 @@
-import json
-
-with open("../data/chunks.json", "w") as f:
-    json.dump(all_chunks, f, indent=2)
+[
+  {
+    "source": "aml_policy.txt",
+    "chunk_id": 0,
+    "content": "Anti Money Laundering Policy\n\nAll transactions above USD 10,000 must undergo enhanced due diligence.\n\nSuspicious transactions must be reported within 24 hours.\n\nCustomer risk classifications include:\n\nLow Risk\nMedium Risk\nHigh Risk\n\nHigh Risk customers require annual reviews."
+  },
+  {
+    "source": "payments_policy.txt",
+    "chunk_id": 0,
+    "content": "Payments Operations\n\nPayment investigations must be resolved within 5 business days.\n\nFailed payments require root cause analysis."
+  },
+  {
+    "source": "swift_policy.txt",
+    "chunk_id": 0,
+    "content": "SWIFT Payment Processing\n\nMT103 is used for customer credit transfers.\n\nMT202 is used for bank transfers.\n\nAll outgoing messages must pass validation checks before transmission."
+  }
+]

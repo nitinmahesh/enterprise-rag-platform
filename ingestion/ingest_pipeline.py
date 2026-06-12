@@ -1,13 +1,21 @@
-from document_loader import load_documents
-from chunker import chunk_text
+import json
+
+from ingestion.document_loader import load_documents
+from ingestion.chunker import chunk_text
 
 documents = load_documents()
 
 all_chunks = []
 
+print("\nLoading Documents...\n")
+
 for doc in documents:
 
+    print(f"Processing: {doc['filename']}")
+
     chunks = chunk_text(doc["content"])
+
+    print(f"Generated {len(chunks)} chunks")
 
     for idx, chunk in enumerate(chunks):
 
@@ -19,4 +27,11 @@ for doc in documents:
             }
         )
 
-print(f"Generated {len(all_chunks)} chunks")
+with open("data/chunks.json", "w") as f:
+    json.dump(all_chunks, f, indent=2)
+
+print("\nSummary")
+print("--------------------")
+print(f"Documents: {len(documents)}")
+print(f"Chunks: {len(all_chunks)}")
+print("Output: data/chunks.json")
