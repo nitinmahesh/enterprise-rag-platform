@@ -1,0 +1,4 @@
+import json
+
+with open("../data/chunks.json", "w") as f:
+    json.dump(all_chunks, f, indent=2)

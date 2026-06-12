@@ -1,0 +1,71 @@
+# Enterprise RAG Platform
+
+## Overview
+
+Enterprise Retrieval-Augmented Generation (RAG) platform demonstrating how organizations can safely expose internal knowledge to Large Language Models.
+
+This project focuses on enterprise-grade retrieval architecture rather than chatbot functionality.
+
+## Business Problem
+
+Organizations store knowledge across:
+
+* Policies
+* Procedures
+* Operational Runbooks
+* Technical Documentation
+* Regulatory Guidelines
+
+Traditional keyword search often fails to provide relevant answers.
+
+This platform demonstrates semantic retrieval using embeddings and vector databases.
+
+## Features
+
+### Document Ingestion
+
+* PDF Processing
+* Text Extraction
+* Metadata Enrichment
+* Chunking
+
+### Retrieval
+
+* Semantic Search
+* Metadata Filtering
+* Hybrid Search
+* Top-K Retrieval
+
+### Vector Databases
+
+* pgvector
+* Pinecone
+* Weaviate
+
+### LLM Integration
+
+* OpenAI
+* Retrieval-Augmented Generation
+* Source Attribution
+
+## Architecture
+
+Documents
+→ Chunking
+→ Embeddings
+→ Vector Database
+→ Retriever
+→ LLM
+→ Response
+
+## Future Roadmap
+
+* Re-ranking
+* Multi-index Retrieval
+* Knowledge Graph Integration
+* Agentic Retrieval
+
+## Author
+
+Nitin Mahesh
+

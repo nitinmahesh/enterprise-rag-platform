@@ -1,0 +1,5 @@
+Payments Operations
+
+Payment investigations must be resolved within 5 business days.
+
+Failed payments require root cause analysis.

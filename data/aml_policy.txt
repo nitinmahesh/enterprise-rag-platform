@@ -1,0 +1,13 @@
+Anti Money Laundering Policy
+
+All transactions above USD 10,000 must undergo enhanced due diligence.
+
+Suspicious transactions must be reported within 24 hours.
+
+Customer risk classifications include:
+
+Low Risk
+Medium Risk
+High Risk
+
+High Risk customers require annual reviews.

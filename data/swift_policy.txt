@@ -1,0 +1,7 @@
+SWIFT Payment Processing
+
+MT103 is used for customer credit transfers.
+
+MT202 is used for bank transfers.
+
+All outgoing messages must pass validation checks before transmission.
