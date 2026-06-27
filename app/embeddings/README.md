@@ -22,3 +22,20 @@ Sentence Transformers
 - VoyageAI
 - BGE
 - E5
+
+## Domain Layer
+
+The Domain Layer contains provider-independent business objects.
+
+No infrastructure or SDK dependencies are permitted inside this package.
+
+Current Models
+
+- EmbeddingInput
+- Embedding
+- EmbeddingMetadata
+- EmbeddingResult
+
+Current Contracts
+
+- EmbeddingProvider
