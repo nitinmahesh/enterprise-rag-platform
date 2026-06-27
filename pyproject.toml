@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enterprise-rag-platform"
+version = "0.1.0"
+description = "Enterprise RAG Platform built using local LLMs, pgvector and MLX."
+readme = "README.md"
+requires-python = ">=3.13"
+
+authors = [
+    {name = "Nitin Mahesh"}
+]
+
+license = {text = "MIT"}
+
+keywords = [
+    "genai",
+    "rag",
+    "ml",
+    "llm",
+    "pgvector",
+    "mlx",
+    "python"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: MacOS",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]

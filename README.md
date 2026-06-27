@@ -110,3 +110,15 @@ Project Foundation
 - Logging framework
 - Configuration singleton
 
+## Roadmap
+
+- [x] Project Foundation
+- [x] Configuration
+- [ ] Local Embeddings
+- [ ] Vector Database
+- [ ] Semantic Retrieval
+- [ ] MLX Integration
+- [ ] FastAPI
+- [ ] Streamlit
+- [ ] Observability
+- [ ] RAG Evaluation
