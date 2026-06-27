@@ -1,21 +1,25 @@
 """
 Public SDK client.
 
-This is the primary entry point for consumers of the
-Enterprise AI Platform.
+Primary entry point into the Enterprise AI Platform.
 """
 
-from .sdk.models import EmbeddingRequest
-from .sdk.models import EmbeddingResponse
+from app.embeddings.application.embedding_service import (
+    EmbeddingService,
+)
+from app.embeddings.sdk.models import (
+    EmbeddingRequest,
+    EmbeddingResponse,
+)
 
 
 class EmbeddingClient:
     """
     Public SDK client.
-
-    Provider integration will be added in a later Engineering
-    Delivery Package.
     """
+
+    def __init__(self) -> None:
+        self._service = EmbeddingService()
 
     def embed(
         self,
@@ -23,10 +27,8 @@ class EmbeddingClient:
     ) -> EmbeddingResponse:
         """
         Generate embeddings.
-
-        Implementation arrives in EDP-003.
         """
 
-        raise NotImplementedError(
-            "Embedding provider has not yet been connected."
+        return self._service.generate_embedding(
+            request
         )

@@ -1,55 +1,31 @@
 """
-Public SDK models.
-
-These models define the public API exposed by the Enterprise AI Platform.
-
-Internal implementation models must never be exposed directly to SDK consumers.
+Public SDK models for the Embedding Capability.
 """
 
-from typing import Any
-
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 
 
 class EmbeddingRequest(BaseModel):
     """
-    Public request model used by SDK consumers.
+    Public request model for embedding generation.
     """
 
-    model_config = ConfigDict(
-        frozen=True,
-        extra="forbid",
-        str_strip_whitespace=True,
-    )
+    model_config = ConfigDict(frozen=True)
 
-    text: str = Field(
-        ...,
-        min_length=1,
-        description="Text to generate embeddings for.",
-    )
-
-    metadata: dict[str, Any] = Field(
-        default_factory=dict,
-        description="Optional application metadata.",
-    )
+    text: str
 
 
 class EmbeddingResponse(BaseModel):
     """
-    Public response returned by the SDK.
+    Public response model exposed by the SDK.
     """
 
-    model_config = ConfigDict(
-        frozen=True,
-        extra="forbid",
-    )
+    model_config = ConfigDict(frozen=True)
 
-    embedding: list[float]
+    vector: list[float]
+
+    dimensions: int
 
     provider: str
 
     model: str
-
-    dimensions: int
-
-    latency_ms: float
