@@ -1,0 +1,9 @@
+pytest
+pytest-cov
+
+ruff
+mypy
+
+pre-commit
+
+types-psycopg2

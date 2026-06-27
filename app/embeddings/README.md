@@ -1,0 +1,64 @@
+# Embedding Package
+
+## Responsibility
+
+Convert text into dense vector representations.
+
+## Why is this package needed?
+
+The retrieval engine operates on vectors rather than raw text.
+
+Embedding generation is isolated behind an abstraction so that
+different providers (Sentence Transformers, OpenAI, VoyageAI)
+can be swapped without affecting the rest of the application.
+
+## Current Provider
+
+Sentence Transformers
+
+## Future Providers
+
+- OpenAI
+- VoyageAI
+- BGE
+- E5
+
+## Domain Layer
+
+The Domain Layer contains provider-independent business objects.
+
+No infrastructure or SDK dependencies are permitted inside this package.
+
+Current Models
+
+- EmbeddingInput
+- Embedding
+- EmbeddingMetadata
+- EmbeddingResult
+
+Current Contracts
+
+- EmbeddingProvider
+
+## Public SDK
+
+The Embedding capability exposes a stable SDK for application developers.
+
+```python
+from app.embeddings import (
+    EmbeddingClient,
+    EmbeddingRequest,
+)
+
+client = EmbeddingClient()
+
+request = EmbeddingRequest(
+    text="Transfer money between accounts."
+)
+```
+
+Consumers interact only with the SDK layer.
+
+Internal implementation details remain hidden.
+
+

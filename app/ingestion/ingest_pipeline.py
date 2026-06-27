@@ -1,7 +1,7 @@
 import json
 
-from ingestion.document_loader import load_documents
-from ingestion.chunker import chunk_text
+from app.ingestion.document_loader import load_documents
+from app.ingestion.chunker import chunk_text
 
 documents = load_documents()
 
