@@ -4,18 +4,20 @@ from app.embeddings import (
 )
 
 
-def test_sdk_runtime():
+def test_sdk_runtime() -> None:
 
     client = EmbeddingClient()
 
-    request = EmbeddingRequest(
-        text="Enterprise AI Platform"
+    response = client.embed(
+        EmbeddingRequest(
+            text="Enterprise AI Platform",
+        )
     )
 
-    response = client.embed(request)
+    assert response.provider == "sentence-transformers"
 
-    assert response.provider == "dummy"
+    assert response.dimensions == 384
 
-    assert response.dimensions == 4
+    assert len(response.vector) == 384
 
-    assert len(response.vector) == 4
+    assert response.model

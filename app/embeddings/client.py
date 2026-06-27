@@ -1,8 +1,8 @@
 """
 Public SDK client.
-
-Primary entry point into the Enterprise AI Platform.
 """
+
+from __future__ import annotations
 
 from app.embeddings.application.embedding_service import (
     EmbeddingService,
@@ -15,20 +15,19 @@ from app.embeddings.sdk.models import (
 
 class EmbeddingClient:
     """
-    Public SDK client.
+    Public SDK entry point.
     """
 
-    def __init__(self) -> None:
-        self._service = EmbeddingService()
+    def __init__(
+        self,
+        provider_name: str = "sentence-transformers",
+    ) -> None:
+
+        self._service = EmbeddingService(provider_name)
 
     def embed(
         self,
         request: EmbeddingRequest,
     ) -> EmbeddingResponse:
-        """
-        Generate embeddings.
-        """
 
-        return self._service.generate_embedding(
-            request
-        )
+        return self._service.embed(request)
