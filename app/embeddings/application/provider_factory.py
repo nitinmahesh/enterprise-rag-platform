@@ -10,7 +10,9 @@ from app.embeddings.providers.dummy_provider import (
 from app.embeddings.providers.registry import (
     ProviderRegistry,
 )
-
+from app.embeddings.providers.sentence_transformer_provider import (
+    SentenceTransformerProvider,
+)
 
 class ProviderFactory:
     """
@@ -24,6 +26,11 @@ class ProviderFactory:
         self._registry.register(
             "dummy",
             DummyEmbeddingProvider,
+        )
+
+        self._registry.register(
+           "sentence-transformers",
+           SentenceTransformerProvider,
         )
 
     def create(
