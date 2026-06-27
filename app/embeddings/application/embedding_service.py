@@ -4,7 +4,10 @@ Embedding application service.
 
 from __future__ import annotations
 
+from app.config.settings import get_settings
+
 from app.embeddings.domain.models import EmbeddingDocument
+
 from app.embeddings.sdk.models import (
     EmbeddingRequest,
     EmbeddingResponse,
@@ -18,12 +21,13 @@ class EmbeddingService:
     Coordinates embedding generation.
     """
 
-    def __init__(
-        self,
-        provider_name: str = "sentence-transformers",
-    ) -> None:
+    def __init__(self) -> None:
 
-        self._provider = ProviderFactory().create(provider_name)
+        settings = get_settings()
+
+        self._provider = ProviderFactory().create(
+            settings.EMBEDDING_PROVIDER
+    )
 
     def embed(
         self,

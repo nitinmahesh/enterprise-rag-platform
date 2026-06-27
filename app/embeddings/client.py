@@ -18,12 +18,9 @@ class EmbeddingClient:
     Public SDK entry point.
     """
 
-    def __init__(
-        self,
-        provider_name: str = "sentence-transformers",
-    ) -> None:
+    def __init__(self) -> None:
 
-        self._service = EmbeddingService(provider_name)
+        self._service = EmbeddingService()
 
     def embed(
         self,
