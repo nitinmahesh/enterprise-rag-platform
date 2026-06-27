@@ -1,19 +1,19 @@
 """
-Embedding domain exceptions.
+Domain exceptions for the Embedding Capability.
 """
 
 
 class EmbeddingError(Exception):
-    """Base exception for embedding capability."""
+    """Base embedding exception."""
 
 
-class InvalidEmbeddingInputError(EmbeddingError):
-    """Raised when embedding input is invalid."""
+class ProviderConfigurationError(EmbeddingError):
+    """Provider configuration is invalid."""
 
 
-class EmbeddingProviderError(EmbeddingError):
-    """Raised when a provider fails."""
+class ProviderNotFoundError(EmbeddingError):
+    """Requested provider is unavailable."""
 
 
-class EmbeddingConfigurationError(EmbeddingError):
-    """Raised when provider configuration is invalid."""
+class EmbeddingGenerationError(EmbeddingError):
+    """Embedding generation failed."""

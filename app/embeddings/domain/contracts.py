@@ -1,29 +1,28 @@
 """
-Domain contracts.
-
-Contracts define interfaces that infrastructure
-must implement.
+Contracts for embedding providers.
 """
 
 from abc import ABC, abstractmethod
 
-from .models import (
-    EmbeddingInput,
-    EmbeddingResult,
-)
+from .models import EmbeddingDocument
+from .models import EmbeddingResult
 
 
 class EmbeddingProvider(ABC):
     """
-    Contract implemented by every embedding provider.
+    Abstract interface implemented by every provider.
     """
+
+    @property
+    @abstractmethod
+    def provider_name(self) -> str:
+        """Human-readable provider name."""
 
     @abstractmethod
     def embed(
         self,
-        embedding_input: EmbeddingInput,
+        document: EmbeddingDocument,
     ) -> EmbeddingResult:
         """
-        Generate an embedding.
+        Generate an embedding for a document.
         """
-        raise NotImplementedError

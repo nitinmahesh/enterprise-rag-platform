@@ -39,3 +39,26 @@ Current Models
 Current Contracts
 
 - EmbeddingProvider
+
+## Public SDK
+
+The Embedding capability exposes a stable SDK for application developers.
+
+```python
+from app.embeddings import (
+    EmbeddingClient,
+    EmbeddingRequest,
+)
+
+client = EmbeddingClient()
+
+request = EmbeddingRequest(
+    text="Transfer money between accounts."
+)
+```
+
+Consumers interact only with the SDK layer.
+
+Internal implementation details remain hidden.
+
+

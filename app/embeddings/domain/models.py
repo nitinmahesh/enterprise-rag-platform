@@ -1,52 +1,56 @@
 """
-Domain models for the Embedding capability.
+Domain models for the Embedding Capability.
 
-These models are provider-agnostic and represent the
-core business objects used throughout the platform.
+These models are provider agnostic and form the
+business language of the Enterprise AI Platform.
 """
 
 from dataclasses import dataclass, field
 from typing import Any
+from uuid import uuid4
 
 
 @dataclass(slots=True, frozen=True)
-class EmbeddingInput:
+class EmbeddingDocument:
     """
-    Represents text that needs to be embedded.
+    Represents a single document (or chunk) to be embedded.
     """
 
     text: str
-    document_id: str | None = None
-    chunk_id: str | None = None
+    document_id: str = field(default_factory=lambda: str(uuid4()))
     metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(slots=True, frozen=True)
-class Embedding:
+class EmbeddingVector:
     """
-    Represents a dense vector.
+    Dense vector representation.
     """
 
-    vector: list[float]
+    values: list[float]
+
+    @property
+    def dimensions(self) -> int:
+        return len(self.values)
 
 
 @dataclass(slots=True, frozen=True)
 class EmbeddingMetadata:
     """
-    Metadata describing how an embedding was generated.
+    Metadata describing embedding generation.
     """
 
     provider: str
     model: str
-    dimensions: int
     latency_ms: float
 
 
 @dataclass(slots=True, frozen=True)
 class EmbeddingResult:
     """
-    Final result returned by an embedding provider.
+    Final output from an embedding provider.
     """
 
-    embedding: Embedding
+    document: EmbeddingDocument
+    vector: EmbeddingVector
     metadata: EmbeddingMetadata
