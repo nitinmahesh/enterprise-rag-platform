@@ -1,5 +1,113 @@
-.env
+# ===========================
+
+# Python
+
+# ===========================
+
+**pycache**/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.pytype/
+
+# ===========================
+
+# Virtual Environments
+
+# ===========================
+
 venv/
-__pycache__/
-*.pyc
-chunks.json
+.venv/
+env/
+ENV/
+
+# ===========================
+
+# Environment Variables
+
+# ===========================
+
+.env
+.env.*
+!.env.example
+
+# ===========================
+
+# IDE
+
+# ===========================
+
+.vscode/
+.idea/
+*.iml
+
+# ===========================
+
+# macOS
+
+# ===========================
+
+.DS_Store
+
+# ===========================
+
+# Logs
+
+# ===========================
+
+logs/
+*.log
+
+# ===========================
+
+# Build
+
+# ===========================
+
+dist/
+build/
+*.egg-info/
+
+# ===========================
+
+# Jupyter
+
+# ===========================
+
+.ipynb_checkpoints/
+
+# ===========================
+
+# Project Generated Files
+
+# ===========================
+
+data/chunks.json
+data/*.faiss
+data/*.pkl
+data/*.db
+
+# ===========================
+
+# Local Models
+
+# ===========================
+
+models/
+cache/
+hf_cache/
+
+# ===========================
+
+# Docker
+
+# ===========================
+
+docker-compose.override.yml
+

@@ -90,3 +90,12 @@ Result:
 
 - Documents Loaded: 3
 - Chunks Generated: 3
+
+## Sprint 0
+
+Project Foundation
+
+- Package Structure
+- Configuration Module
+- Logging Module
+- ADR
