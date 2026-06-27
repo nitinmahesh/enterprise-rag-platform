@@ -13,7 +13,9 @@ class Settings(BaseSettings):
 
     APP_NAME: str = "Enterprise RAG Platform"
 
-    APP_VERSION: str = "0.1.0"
+    APP_VERSION: str = "0.3.0"
+
+    EMBEDDING_PROVIDER: str = "sentence-transformers"
 
     EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
 
