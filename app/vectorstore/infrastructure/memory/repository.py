@@ -9,6 +9,8 @@ from app.vectorstore.domain import (
     VectorStoreRepository,
 )
 
+from app.vectorstore.domain.services import CosineSimilarity
+
 
 class InMemoryVectorStoreRepository(VectorStoreRepository):
     """
@@ -38,3 +40,33 @@ class InMemoryVectorStoreRepository(VectorStoreRepository):
 
     def count(self) -> int:
         return len(self._store)
+
+    def search(
+        self,
+        query_vector: list[float],
+        limit: int = 5,
+            ) -> list[StoredEmbedding]:
+        """
+        Return the nearest embeddings using cosine similarity.
+        """
+
+        scored = [
+            (
+                CosineSimilarity.score(
+                    query_vector,
+                    embedding.vector,
+                ),
+                embedding,
+            )
+            for embedding in self._store.values()
+        ]
+
+        scored.sort(
+            key=lambda item: item[0],
+            reverse=True,
+        )
+
+        return [
+            embedding
+            for _, embedding in scored[:limit]
+        ]

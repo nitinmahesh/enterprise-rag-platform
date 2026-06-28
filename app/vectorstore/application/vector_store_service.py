@@ -41,3 +41,18 @@ class VectorStoreService:
 
     def count(self) -> int:
         return self._repository.count()
+
+    def search(
+        self,
+        query_vector: list[float],
+        limit: int = 5,
+    ) -> list[StoredEmbedding]:
+        """
+        Search for similar embeddings.
+        """
+
+        return self._repository.search(
+            query_vector,
+            limit,
+        )
+   

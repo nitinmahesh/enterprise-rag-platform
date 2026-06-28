@@ -47,3 +47,13 @@ class VectorStoreRepository(ABC):
         """
         Return the number of stored embeddings.
         """
+
+    @abstractmethod
+    def search(
+        self,
+        query_vector: list[float],
+        limit: int = 5,
+    ) -> list[StoredEmbedding]:
+        """
+        Return the nearest embeddings.
+        """

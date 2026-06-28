@@ -160,3 +160,63 @@ class PostgresVectorStoreRepository(VectorStoreRepository):
         assert result is not None
 
         return int(result[0])
+
+    def search(
+        self,
+        query_vector: list[float],
+        limit: int = 5,
+    ) -> list[StoredEmbedding]:
+        """
+        Return the nearest embeddings using pgvector.
+        """
+
+        connection = PostgresConnectionFactory.create()
+
+        try:
+
+            with connection.cursor() as cursor:
+
+                cursor.execute(
+                    """
+                    SELECT
+                        id,
+                        document_id,
+                        embedding,
+                        metadata,
+                        created_at
+                    FROM embeddings
+                    ORDER BY embedding <=> %s::vector
+                    LIMIT %s;
+                    """,
+                    (
+                        str(query_vector),
+                        limit,
+                    ),
+                )
+
+                rows = cursor.fetchall()
+
+        finally:
+
+            connection.close()
+
+        results: list[StoredEmbedding] = []
+
+        for row in rows:
+
+            vector = [
+                float(value)
+                for value in row[2].strip("[]").split(",")
+            ]
+
+            results.append(
+                StoredEmbedding(
+                    id=row[0],
+                    document_id=row[1],
+                    vector=vector,
+                    metadata=row[3],
+                    created_at=row[4],
+                )
+            )
+
+        return results 
