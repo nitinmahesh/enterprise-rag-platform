@@ -6,7 +6,7 @@ from app.embeddings.domain.models import (
 )
 
 
-def test_dummy_provider():
+def test_dummy_provider() -> None:
 
     factory = ProviderFactory()
 

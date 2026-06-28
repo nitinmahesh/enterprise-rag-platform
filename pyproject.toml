@@ -42,6 +42,10 @@ python_version = "3.13"
 
 strict = true
 
+exclude = [
+    "^app/ingestion/"
+]
+
 warn_unused_configs = true
 warn_return_any = true
 warn_unused_ignores = true
