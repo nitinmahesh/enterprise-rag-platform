@@ -4,7 +4,7 @@ from app.embeddings.providers.sentence_transformer_provider import (
 )
 
 
-def test_sentence_transformer_provider():
+def test_sentence_transformer_provider() -> None:
 
     provider = SentenceTransformerProvider()
 

@@ -13,6 +13,7 @@ from app.embeddings.providers.registry import (
 from app.embeddings.providers.sentence_transformer_provider import (
     SentenceTransformerProvider,
 )
+from app.embeddings.domain.contracts import EmbeddingProvider
 
 class ProviderFactory:
     """
@@ -36,5 +37,5 @@ class ProviderFactory:
     def create(
         self,
         provider_name: str,
-    ):
+    ) -> EmbeddingProvider:
         return self._registry.create(provider_name)

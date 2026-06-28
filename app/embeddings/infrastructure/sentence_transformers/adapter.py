@@ -27,7 +27,9 @@ class SentenceTransformerAdapter:
 
     @property
     def model_name(self) -> str:
-        return self._model._first_module().auto_model.config.name_or_path
+        return str(
+            self._model._first_module().auto_model.config.name_or_path
+        )
 
     def encode(
         self,
@@ -41,7 +43,7 @@ class SentenceTransformerAdapter:
             convert_to_numpy=True,
         )
 
-        return vector.tolist()
+        return list(vector.tolist())
 
     def encode_many(
         self,
@@ -55,4 +57,4 @@ class SentenceTransformerAdapter:
             convert_to_numpy=True,
         )
 
-        return vectors.tolist()
+        return [list(v) for v in vectors.tolist()]

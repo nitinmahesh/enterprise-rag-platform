@@ -21,6 +21,20 @@ class Settings(BaseSettings):
 
     VECTOR_DIMENSION: int = 384
 
+    # ---------------------------------------------------------------------
+    # PostgreSQL
+    # ---------------------------------------------------------------------
+
+    POSTGRES_HOST: str = "localhost"
+
+    POSTGRES_PORT: int = 5432
+
+    POSTGRES_DATABASE: str = "enterprise_rag"
+
+    POSTGRES_USER: str = "nitinm"
+
+    POSTGRES_PASSWORD: str = ""
+
     CHUNK_SIZE: int = 300
 
     CHUNK_OVERLAP: int = 50

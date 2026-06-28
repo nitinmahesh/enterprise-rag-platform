@@ -6,7 +6,7 @@ from app.embeddings.domain.models import (
 )
 
 
-def test_embedding_result():
+def test_embedding_result() -> None:
 
     document = EmbeddingDocument(
         text="Enterprise AI Platform"
